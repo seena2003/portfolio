@@ -52,7 +52,7 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open (https://lovable.dev/projects/cd809738-d48d-4c7c-8884-05841c989707) and click on Share -> Publish.
+Simply open netlify and Publish.
 
 ## Can I connect a custom domain to my Lovable project?
 
