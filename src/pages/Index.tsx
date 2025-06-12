@@ -36,6 +36,19 @@ const Index = () => {
     }));
   };
 
+  // This handleSubmit function currently submits data to a Google Form.
+  // While functional, for a more robust and professional solution, consider:
+  // 1. Using a service like EmailJS (https://www.emailjs.com/) which allows sending emails directly from JavaScript.
+  // 2. Implementing a simple backend (e.g., using Node.js with Express, or a serverless function)
+  //    to handle form submissions and send emails.
+  //
+  // To use this Google Form, you need to:
+  // 1. Create your own Google Form with fields for Name, Email, and Message.
+  // 2. Get the Form ID from the form's URL (it looks like '1FAIpQLSf_YOUR_FORM_ID').
+  // 3. Get the entry IDs for your Name, Email, and Message fields using browser developer tools when inspecting the live Google Form.
+  //    (Right-click on an input field, select "Inspect", and look for the 'name' attribute of the input, e.g., 'entry.123456789').
+  // 4. Update the `googleFormURL`, `entry.YOUR_NAME_FIELD_ID`, `entry.YOUR_EMAIL_FIELD_ID`,
+  //    and `entry.YOUR_MESSAGE_FIELD_ID` variables in this function.
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -76,6 +89,7 @@ const Index = () => {
       title: "AgriBot",
       description: "AI-powered agriculture platform for smart farming solutions with predictive analytics and IoT integration.",
       tech: ["Python", "TensorFlow", "React", "IoT", "PostgreSQL"],
+      // TODO: Replace with actual project image path (e.g., "/photos/project-agribot.png")
       image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=500&h=300&fit=crop",
       github: "#",
       demo: "#"
@@ -84,6 +98,7 @@ const Index = () => {
       title: "Taste Explorer",
       description: "Interactive restaurant finder application using Google Maps API with real-time reviews and recommendations.",
       tech: ["React.js", "Node.js", "Maps API", "MongoDB"],
+      // TODO: Replace with actual project image path (e.g., "/photos/project-taste-explorer.png")
       image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&h=300&fit=crop",
       github: "#",
       demo: "#"
@@ -92,6 +107,7 @@ const Index = () => {
       title: "IoT Sunglass",
       description: "Real-world IoT solution for driver safety with smart monitoring and alert systems.",
       tech: ["Arduino", "IoT", "C++", "Sensors", "Mobile App"],
+      // TODO: Replace with actual project image path (e.g., "/photos/project-iot-sunglass.png")
       image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500&h=300&fit=crop",
       github: "#",
       demo: "#"
@@ -121,8 +137,8 @@ const Index = () => {
         }
         
         @keyframes glow-pulse {
-          0%, 100% { box-shadow: 0 0 20px rgba(249, 115, 22, 0.3); }
-          50% { box-shadow: 0 0 40px rgba(249, 115, 22, 0.6), 0 0 60px rgba(249, 115, 22, 0.3); }
+          0%, 100% { box-shadow: 0 0 15px rgba(249, 115, 22, 0.2); }
+          50% { box-shadow: 0 0 25px rgba(249, 115, 22, 0.4); }
         }
         
         @keyframes geometric-rotate {
@@ -132,7 +148,7 @@ const Index = () => {
         }
         
         .float-animation { animation: float 6s ease-in-out infinite; }
-        .glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
+        .glow-pulse { animation: glow-pulse 5s ease-in-out infinite; }
         .geometric-rotate { animation: geometric-rotate 20s linear infinite; }
       `}</style>
 
@@ -189,8 +205,8 @@ const Index = () => {
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/4 w-2 h-2 bg-orange-400 rounded-full animate-ping"></div>
-          <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-blue-400 rounded-full animate-ping delay-500"></div>
+          <div className="absolute top-1/2 left-1/4 w-2 h-2 bg-orange-400 rounded-full"></div>
+          <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-blue-400 rounded-full"></div>
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
@@ -249,7 +265,7 @@ const Index = () => {
                     {/* Large Orange Circle */}
                     <div className="absolute inset-0 bg-gradient-to-r from-orange-500/30 to-red-500/20 rounded-full blur-xl"></div>
                     {/* Geometric Shapes */}
-                    <div className="absolute top-0 right-0 w-32 h-32 border-4 border-orange-500/30 rounded-full geometric-rotate"></div>
+                    <div className="absolute top-0 right-0 w-32 h-32 border-4 border-orange-500/30 rounded-full"></div>
                     <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-orange-500/20 to-transparent rounded-xl transform rotate-45"></div>
                   </div>
                   
@@ -283,17 +299,17 @@ const Index = () => {
 
                 {/* Animated Tech Orbit */}
                 <div className="absolute inset-0 pointer-events-none">
-                  <div className="absolute top-1/4 left-full w-8 h-8 bg-orange-500/20 rounded-lg flex items-center justify-center transform animate-ping">
+                  <div className="absolute top-1/4 left-full w-8 h-8 bg-orange-500/20 rounded-lg flex items-center justify-center transform">
                     <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
                   </div>
-                  <div className="absolute bottom-1/4 right-full w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center transform animate-ping delay-700">
+                  <div className="absolute bottom-1/4 right-full w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center transform">
                     <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
                   </div>
                 </div>
 
                 {/* Decorative Modern Lines */}
-                <div className="absolute -inset-12 border border-orange-500/10 rounded-full animate-spin opacity-30" style={{ animationDuration: '30s' }}></div>
-                <div className="absolute -inset-16 border border-blue-500/5 rounded-full animate-spin opacity-20" style={{ animationDuration: '45s', animationDirection: 'reverse' }}></div>
+                <div className="absolute -inset-12 border border-orange-500/10 rounded-full opacity-30"></div>
+                <div className="absolute -inset-16 border border-blue-500/5 rounded-full opacity-20"></div>
               </div>
             </div>
           </div>
@@ -406,12 +422,12 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <Card key={index} className="bg-slate-900 border-slate-700 hover:border-orange-400 transition-all duration-300 hover:transform hover:scale-105">
+              <Card key={index} className="bg-slate-900 border-slate-700 hover:border-orange-400 transition-all duration-300">
                 <div className="relative overflow-hidden rounded-t-lg">
                   <img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-full h-48 object-cover hover:scale-110 transition-transform duration-300"
+                    className="w-full h-48 object-cover transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
                 </div>
