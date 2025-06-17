@@ -175,7 +175,7 @@ const Index = () => {
     {
       title: "Real-Time Weather Forecast App",
       description: "Weather app providing real-time forecasts and weather data for any location.",
-      tech: ["React.js", "OpenWeatherMap API", "CSS"],
+      tech: ["Android Studio", "OpenWeatherMap API", "Java"],
       image: "/photos/weatherapp.png",
       github: "https://github.com/seena2003/RealTimeWeatherApp",
       demo: "https://github.com/seena2003/RealTimeWeatherApp"
