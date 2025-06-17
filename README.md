@@ -3,10 +3,16 @@ Currently, I am pursuing a Bachelor of Engineering in Computer Science at Malnad
 
 # Welcome to your personal portfolio project
 
+<<<<<<< HEAD
 
 **Use your preferred IDE**
 
 If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+=======
+**Use your preferred IDE**
+
+If you want to work locally using your own IDE, you can clone this repo and push changes.
+>>>>>>> b8b473e (Initial commit with portfolio project files)
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -52,6 +58,7 @@ This project is built with:
 
 ## How can I deploy this project?
 
+<<<<<<< HEAD
 Simply open netlify and Publish.
 
 ## Updating Project Images
@@ -119,3 +126,21 @@ For a more professional and flexible solution, consider these alternatives:
 
 Choosing an alternative will likely involve removing the current Google Forms submission logic and implementing the new service's SDK or API calls.
 
+=======
+You can deploy this project using various hosting platforms like Vercel, Netlify, or GitHub Pages. Here's how to deploy using Vercel:
+
+1. Push your code to a GitHub repository
+2. Go to [Vercel](https://vercel.com)
+3. Import your repository
+4. Follow the deployment steps
+
+## Can I connect a custom domain to my project?
+
+Yes, you can! Most hosting platforms like Vercel, Netlify, and GitHub Pages support custom domains. The process typically involves:
+
+1. Adding your domain in your hosting platform's settings
+2. Configuring your domain's DNS settings
+3. Waiting for DNS propagation
+
+Check your hosting platform's documentation for specific instructions on setting up a custom domain.
+>>>>>>> b8b473e (Initial commit with portfolio project files)

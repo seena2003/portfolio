@@ -1,10 +1,19 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
+=======
+import React, { useState, useEffect, useRef } from 'react';
+>>>>>>> b8b473e (Initial commit with portfolio project files)
 import { Menu, X, ExternalLink, Github, Linkedin, Mail, Phone, MapPin, Calendar, Award, Code, Briefcase, User, ChevronRight, Download, Star, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
+<<<<<<< HEAD
+=======
+import { motion, AnimatePresence } from "framer-motion";
+import ProjectCarousel from '@/components/ProjectCarousel';
+>>>>>>> b8b473e (Initial commit with portfolio project files)
 
 const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,6 +45,7 @@ const Index = () => {
     }));
   };
 
+<<<<<<< HEAD
   // This handleSubmit function currently submits data to a Google Form.
   // While functional, for a more robust and professional solution, consider:
   // 1. Using a service like EmailJS (https://www.emailjs.com/) which allows sending emails directly from JavaScript.
@@ -49,6 +59,8 @@ const Index = () => {
   //    (Right-click on an input field, select "Inspect", and look for the 'name' attribute of the input, e.g., 'entry.123456789').
   // 4. Update the `googleFormURL`, `entry.YOUR_NAME_FIELD_ID`, `entry.YOUR_EMAIL_FIELD_ID`,
   //    and `entry.YOUR_MESSAGE_FIELD_ID` variables in this function.
+=======
+>>>>>>> b8b473e (Initial commit with portfolio project files)
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -89,32 +101,98 @@ const Index = () => {
       title: "AgriBot",
       description: "AI-powered agriculture platform for smart farming solutions with predictive analytics and IoT integration.",
       tech: ["Python", "TensorFlow", "React", "IoT", "PostgreSQL"],
+<<<<<<< HEAD
       // TODO: Replace with actual project image path (e.g., "/photos/project-agribot.png")
       image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=500&h=300&fit=crop",
       github: "#",
       demo: "#"
+=======
+      image: "/photos/agribot.png",
+      github: "https://github.com/seena2003/AgriBot",
+      demo: "https://github.com/seena2003/AgriBot"
+>>>>>>> b8b473e (Initial commit with portfolio project files)
     },
     {
       title: "Taste Explorer",
       description: "Interactive restaurant finder application using Google Maps API with real-time reviews and recommendations.",
       tech: ["React.js", "Node.js", "Maps API", "MongoDB"],
+<<<<<<< HEAD
       // TODO: Replace with actual project image path (e.g., "/photos/project-taste-explorer.png")
       image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&h=300&fit=crop",
       github: "#",
       demo: "#"
+=======
+      image: "/photos/tastexplorer.png",
+      github: "https://github.com/seena2003/tastexplorer",
+      demo: "https://tastexplorer.vercel.app/"
+    },
+    
+    {
+      title: "Malnad Eco Club Website",
+      description: "Official website for Malnad Eco Club, featuring events, gallery, and environmental initiatives.",
+      tech: ["React.js", "TailwindCSS", "Node.js"],
+      image: "/photos/malnadecoclub.png",
+      github: "https://github.com/malnadecoclub/malnad-eco-club",
+      demo: "https://malnad-eco-club.vercel.app/"
+    },
+    {
+      title: "ToDO Application",
+      description: "A simple and intuitive ToDo app to manage daily tasks efficiently.",
+      tech: ["React.js", "TypeScript", "CSS"],
+      image: "/photos/todo.png",
+      github: "https://github.com/seena2003/ToDO",
+      demo: "https://to-do-bice-phi.vercel.app/"
+    },
+    {
+      title: "My Portfolio",
+      description: "Personal portfolio website showcasing my projects, skills, and experience.",
+      tech: ["React.js", "Vite", "TailwindCSS"],
+      image: "/photos/portfolio.png",
+      github: "https://github.com/seena2003/portfolio",
+      demo: "https://portfolio-psi-henna-70.vercel.app/"
+    },
+    {
+      title: "AI Fashion Design Generator",
+      description: "A frontend design for AI Fashion Design generator for cotton-textile industry which is done during my internship at IMERSE digital.",
+      tech: ["React.js", "Next.js", "TailwindCSS", "Node.js", "OpenAI API"],
+      image: "/photos/imerse.png",
+      github: "https://github.com/seena2003/AI-Fashion-Design-Generator",
+      demo: "https://ai-fashion-design-generator.vercel.app/"
+>>>>>>> b8b473e (Initial commit with portfolio project files)
     },
     {
       title: "IoT Sunglass",
       description: "Real-world IoT solution for driver safety with smart monitoring and alert systems.",
       tech: ["Arduino", "IoT", "C++", "Sensors", "Mobile App"],
+<<<<<<< HEAD
       // TODO: Replace with actual project image path (e.g., "/photos/project-iot-sunglass.png")
       image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500&h=300&fit=crop",
+=======
+      image: "/photos/iot.jpg",
+      github: "#",
+      demo: "#"
+    },
+    {
+      title: "Real-Time Weather Forecast App",
+      description: "Weather app providing real-time forecasts and weather data for any location.",
+      tech: ["React.js", "OpenWeatherMap API", "CSS"],
+      image: "/photos/weatherapp.png",
+      github: "https://github.com/seena2003/RealTimeWeatherApp",
+      demo: "https://github.com/seena2003/RealTimeWeatherApp"
+    },
+    {
+      title: "Amazon Frontend Clone",
+      description: "A frontend clone of Amazon with product listings, cart, and responsive design.",
+      tech: ["HTML", "CSS"],
+      image: "/photos/amazon.png",
+>>>>>>> b8b473e (Initial commit with portfolio project files)
       github: "#",
       demo: "#"
     }
   ];
 
   const skills = {
+<<<<<<< HEAD
     "Languages": ["Java", "Python", "JavaScript", "C++", "SQL"],
     "Frameworks": ["React.js", "Next.js", "Flask", "Node.js", "Express"],
     "Tools": ["Docker", "AWS", "Git", "PostgreSQL", "MongoDB"],
@@ -126,6 +204,19 @@ const Index = () => {
     { name: "Soft Skill Development", org: "NPTEL", year: "2024" },
     { name: "DevOps Fundamentals", org: "Seminarroom Education", year: "2023" },
     { name: "Deloitte NLA Clearance", org: "Deloitte", year: "2023" }
+=======
+    "Languages": ["Java", "Python","HTML/CSS", "JavaScript", "C++", "SQL"],
+    "Frameworks": ["React.js", "Next.js", "Node.js", "Flask","Django"],
+    "Tools": ["Docker", "AWS", "Git", "PostgreSQL", "MongoDB"],
+    "Specialties": ["AI/ML", "DevOps", "API Integration", "IoT", "Data Science"]
+  };
+
+  const certifications = [
+    { name: "Intro to Data Science", org: "Cisco", year: "2025" },
+    { name: "Soft Skill Development", org: "NPTEL", year: "2024" },
+    { name: "DevOps Fundamentals", org: "Seminarroom Education", year: "2024" },
+    { name: "Deloitte NLA Clearance", org: "Deloitte", year: "2025" }
+>>>>>>> b8b473e (Initial commit with portfolio project files)
   ];
 
   return (
@@ -137,8 +228,13 @@ const Index = () => {
         }
         
         @keyframes glow-pulse {
+<<<<<<< HEAD
           0%, 100% { box-shadow: 0 0 15px rgba(249, 115, 22, 0.2); }
           50% { box-shadow: 0 0 25px rgba(249, 115, 22, 0.4); }
+=======
+          0%, 100% { box-shadow: 0 0 20px rgba(249, 115, 22, 0.3); }
+          50% { box-shadow: 0 0 40px rgba(249, 115, 22, 0.6), 0 0 60px rgba(249, 115, 22, 0.3); }
+>>>>>>> b8b473e (Initial commit with portfolio project files)
         }
         
         @keyframes geometric-rotate {
@@ -147,9 +243,23 @@ const Index = () => {
           100% { transform: rotate(360deg) scale(1); }
         }
         
+<<<<<<< HEAD
         .float-animation { animation: float 6s ease-in-out infinite; }
         .glow-pulse { animation: glow-pulse 5s ease-in-out infinite; }
         .geometric-rotate { animation: geometric-rotate 20s linear infinite; }
+=======
+        @keyframes glow {
+          0%, 100% { box-shadow: 0 0 40px 10px rgba(249,115,22,0.5); }
+          50% { box-shadow: 0 0 60px 20px rgba(249,115,22,0.8); }
+        }
+        
+        .float-animation { animation: float 6s ease-in-out infinite; }
+        .glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
+        .geometric-rotate { animation: geometric-rotate 20s linear infinite; }
+        .animate-glow {
+          animation: glow 2.5s ease-in-out infinite;
+        }
+>>>>>>> b8b473e (Initial commit with portfolio project files)
       `}</style>
 
       {/* Navigation */}
@@ -205,8 +315,13 @@ const Index = () => {
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+<<<<<<< HEAD
           <div className="absolute top-1/2 left-1/4 w-2 h-2 bg-orange-400 rounded-full"></div>
           <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-blue-400 rounded-full"></div>
+=======
+          <div className="absolute top-1/2 left-1/4 w-2 h-2 bg-orange-400 rounded-full animate-ping"></div>
+          <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-blue-400 rounded-full animate-ping delay-500"></div>
+>>>>>>> b8b473e (Initial commit with portfolio project files)
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
@@ -265,11 +380,16 @@ const Index = () => {
                     {/* Large Orange Circle */}
                     <div className="absolute inset-0 bg-gradient-to-r from-orange-500/30 to-red-500/20 rounded-full blur-xl"></div>
                     {/* Geometric Shapes */}
+<<<<<<< HEAD
                     <div className="absolute top-0 right-0 w-32 h-32 border-4 border-orange-500/30 rounded-full"></div>
+=======
+                    <div className="absolute top-0 right-0 w-32 h-32 border-4 border-orange-500/30 rounded-full geometric-rotate"></div>
+>>>>>>> b8b473e (Initial commit with portfolio project files)
                     <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-orange-500/20 to-transparent rounded-xl transform rotate-45"></div>
                   </div>
                   
                   {/* Enhanced Photo Frame - REMOVED HOVER EFFECTS */}
+<<<<<<< HEAD
                   <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-8 border-gradient-to-r from-orange-500 to-red-500 shadow-2xl glow-pulse">
                     <img 
                       src="/photos/profile1.png"
@@ -281,6 +401,19 @@ const Index = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-orange-500/10"></div>
                     
                   
+=======
+                  <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden z-10">
+                    {/* Outer Glow/Gradient Border */}
+                    <div className="absolute inset-0 rounded-full border-[10px] border-orange-500 shadow-[0_0_40px_10px_rgba(249,115,22,0.5)] animate-glow"></div>
+                    {/* Main Photo */}
+                    <img 
+                      src="/photos/profilew.png"
+                      alt="Srinath Gowda S M"
+                      className="w-full h-full object-cover object-center rounded-full border-4 border-white relative z-10"
+                    />
+                    {/* Optional: Inner subtle white border for depth */}
+                    <div className="absolute inset-2 rounded-full border-2 border-white opacity-60 z-0"></div>
+>>>>>>> b8b473e (Initial commit with portfolio project files)
                   </div>
                 </div>
 
@@ -299,17 +432,29 @@ const Index = () => {
 
                 {/* Animated Tech Orbit */}
                 <div className="absolute inset-0 pointer-events-none">
+<<<<<<< HEAD
                   <div className="absolute top-1/4 left-full w-8 h-8 bg-orange-500/20 rounded-lg flex items-center justify-center transform">
                     <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
                   </div>
                   <div className="absolute bottom-1/4 right-full w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center transform">
+=======
+                  <div className="absolute top-1/4 left-full w-8 h-8 bg-orange-500/20 rounded-lg flex items-center justify-center transform animate-ping">
+                    <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                  </div>
+                  <div className="absolute bottom-1/4 right-full w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center transform animate-ping delay-700">
+>>>>>>> b8b473e (Initial commit with portfolio project files)
                     <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
                   </div>
                 </div>
 
                 {/* Decorative Modern Lines */}
+<<<<<<< HEAD
                 <div className="absolute -inset-12 border border-orange-500/10 rounded-full opacity-30"></div>
                 <div className="absolute -inset-16 border border-blue-500/5 rounded-full opacity-20"></div>
+=======
+                <div className="absolute -inset-12 border border-orange-500/10 rounded-full animate-spin opacity-30" style={{ animationDuration: '30s' }}></div>
+                <div className="absolute -inset-16 border border-blue-500/5 rounded-full animate-spin opacity-20" style={{ animationDuration: '45s', animationDirection: 'reverse' }}></div>
+>>>>>>> b8b473e (Initial commit with portfolio project files)
               </div>
             </div>
           </div>
@@ -332,7 +477,11 @@ const Index = () => {
                 can solve real-world problems, leading me to specialize in creating smart, scalable solutions.
               </p>
               <p className="text-gray-300 text-lg leading-relaxed">
+<<<<<<< HEAD
                 As the Digital Head at Malnad Eco Club, I combine technical expertise with leadership skills to 
+=======
+                As the Digital & Social Media Head at Malnad Eco Club, I combine technical expertise with leadership skills to 
+>>>>>>> b8b473e (Initial commit with portfolio project files)
                 drive innovation in environmental technology projects. I believe in continuous learning and 
                 staying updated with the latest technological trends.
               </p>
@@ -346,6 +495,10 @@ const Index = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
+<<<<<<< HEAD
+=======
+                    <p className="text-sm text-gray-300">Malnad College of Engineering</p>
+>>>>>>> b8b473e (Initial commit with portfolio project files)
                     <p className="text-sm text-gray-300">B.E in Computer Science</p>
                     <p className="text-xs text-gray-400">2021 - 2025</p>
                   </CardContent>
@@ -359,8 +512,14 @@ const Index = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
+<<<<<<< HEAD
                     <p className="text-sm text-gray-300">Digital Head</p>
                     <p className="text-xs text-gray-400">Malnad Eco Club</p>
+=======
+                    <p className="text-sm text-gray-300">Digital & Social Media Head</p>
+                    <p className="text-xs text-gray-400">Malnad Eco Club</p>
+                    <p className="text-xs text-gray-400">2021 - 2025</p>
+>>>>>>> b8b473e (Initial commit with portfolio project files)
                   </CardContent>
                 </Card>
               </div>
@@ -374,12 +533,20 @@ const Index = () => {
                 <CardContent className="space-y-4">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300">Projects Completed</span>
+<<<<<<< HEAD
                     <span className="text-2xl font-bold text-orange-400">15+</span>
+=======
+                    <span className="text-2xl font-bold text-orange-400">10+</span>
+>>>>>>> b8b473e (Initial commit with portfolio project files)
                   </div>
                   <Separator className="bg-slate-700" />
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300">Technologies Mastered</span>
+<<<<<<< HEAD
                     <span className="text-2xl font-bold text-orange-400">20+</span>
+=======
+                    <span className="text-2xl font-bold text-orange-400">15+</span>
+>>>>>>> b8b473e (Initial commit with portfolio project files)
                   </div>
                   <Separator className="bg-slate-700" />
                   <div className="flex justify-between items-center">
@@ -416,6 +583,7 @@ const Index = () => {
             <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
             <div className="w-20 h-1 bg-orange-400 mx-auto mb-4"></div>
             <p className="text-gray-400 max-w-2xl mx-auto">
+<<<<<<< HEAD
               Here are some of my key projects that showcase my skills in web development, AI, data science and IoT technologies.
             </p>
           </div>
@@ -459,6 +627,13 @@ const Index = () => {
               </Card>
             ))}
           </div>
+=======
+              Here are some of my projects that showcase my skills in web development, AI & data science.
+            </p>
+          </div>
+
+          <ProjectCarousel projects={projects} />
+>>>>>>> b8b473e (Initial commit with portfolio project files)
         </div>
       </section>
 
