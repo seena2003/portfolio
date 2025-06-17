@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -123,7 +123,7 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
                   width: '350px',
                 }}
               >
-                <Card className="bg-slate-900 border-slate-700 hover:border-orange-400 transition-all duration-300">
+                <Card className="bg-transparent border-slate-700 hover:border-orange-400 transition-all duration-300">
                   <div className="relative overflow-hidden rounded-t-lg">
                     <img
                       src={project.image}
