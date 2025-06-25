@@ -836,7 +836,7 @@ const Index = () => {
                     {contactLoading ? 'Sending...' : 'Send Message'}
                   </Button>
                   {contactSuccess && (
-                    <div className="text-green-400 text-center pt-2">Message submitted successfully!</div>
+                    <div className="text-green-400 text-center pt-2">Message sent successfully!</div>
                   )}
                 </form>
               </CardContent>
