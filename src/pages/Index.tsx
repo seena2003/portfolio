@@ -143,6 +143,38 @@ const Index = () => {
     { name: "Deloitte NLA Clearance", org: "Deloitte", year: "2025" },
   ];
 
+  const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' });
+  const [contactSuccess, setContactSuccess] = useState(false);
+  const [contactLoading, setContactLoading] = useState(false);
+
+  const handleContactChange = (e) => {
+    setContactForm({ ...contactForm, [e.target.name]: e.target.value });
+  };
+
+  const handleContactSubmit = async (e) => {
+    e.preventDefault();
+    setContactLoading(true);
+    setContactSuccess(false);
+    const formData = new URLSearchParams();
+    formData.append('entry.2005620554', contactForm.name);
+    formData.append('entry.1045781291', contactForm.email);
+    formData.append('entry.839337160', contactForm.message);
+    try {
+      await fetch('https://docs.google.com/forms/d/e/1FAIpQLSdRavmXwRNdYZAzHUJJqbppKhGfzCAu6pNJliK-mthdStu_Hg/formResponse', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formData.toString(),
+      });
+      setContactSuccess(true);
+      setContactForm({ name: '', email: '', message: '' });
+    } catch (err) {
+      setContactSuccess(false);
+    } finally {
+      setContactLoading(false);
+    }
+  };
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const scrollToSection = (sectionId: string) => {
@@ -762,40 +794,50 @@ const Index = () => {
                 <CardTitle className="text-white">Send a Message</CardTitle>
               </CardHeader>
               <CardContent>
-                <form action="https://docs.google.com/forms/d/e/1FAIpQLSdRavmXwRNdYZAzHUJJqbppKhGfzCAu6pNJliK-mthdStu_Hg/formResponse" method="POST" target="_blank" className="space-y-4">
+                <form onSubmit={handleContactSubmit} className="space-y-4">
                   <div>
                     <input
                       type="text"
-                      name="entry.2005620554"
+                      name="name"
                       placeholder="Your Name"
                       required
+                      value={contactForm.name}
+                      onChange={handleContactChange}
                       className="w-full p-3 bg-slate-900 border border-slate-700 rounded-lg text-white placeholder-gray-400 focus:border-orange-400 focus:outline-none"
                     />
                   </div>
                   <div>
                     <input
                       type="email"
-                      name="entry.1045781291"
+                      name="email"
                       placeholder="Your Email"
                       required
+                      value={contactForm.email}
+                      onChange={handleContactChange}
                       className="w-full p-3 bg-slate-900 border border-slate-700 rounded-lg text-white placeholder-gray-400 focus:border-orange-400 focus:outline-none"
                     />
                   </div>
                   <div>
                     <textarea
-                      name="entry.839337160"
+                      name="message"
                       placeholder="Your Message"
                       rows={4}
                       required
+                      value={contactForm.message}
+                      onChange={handleContactChange}
                       className="w-full p-3 bg-slate-900 border border-slate-700 rounded-lg text-white placeholder-gray-400 focus:border-orange-400 focus:outline-none"
                     ></textarea>
                   </div>
                   <Button
                     type="submit"
                     className="w-full bg-orange-500 hover:bg-orange-600 text-white"
+                    disabled={contactLoading}
                   >
-                    Send Message
+                    {contactLoading ? 'Sending...' : 'Send Message'}
                   </Button>
+                  {contactSuccess && (
+                    <div className="text-green-400 text-center pt-2">Message submitted successfully!</div>
+                  )}
                 </form>
               </CardContent>
             </Card>
