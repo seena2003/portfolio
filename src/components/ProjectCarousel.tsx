@@ -37,7 +37,7 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
 
     const interval = setInterval(() => {
       nextSlide();
-    }, 5000);
+    }, 2500);
 
     return () => clearInterval(interval);
   }, [isAutoPlaying, projects.length]);

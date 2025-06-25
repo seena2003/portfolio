@@ -82,33 +82,32 @@ const Index = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch('https://docs.google.com/forms/d/e/1FAIpQLSf_YOUR_FORM_ID/formResponse', {
-        method: 'POST',
-        body: new URLSearchParams({
-          'entry.YOUR_NAME_FIELD_ID': data.name,
-          'entry.YOUR_EMAIL_FIELD_ID': data.email,
-          'entry.YOUR_MESSAGE_FIELD_ID': data.message,
-        }),
-      });
+      const response = await fetch(
+        'https://docs.google.com/forms/d/e/1FAIpQLSdRavmXwRNdYZAzHUJJqbppKhGfzCAu6pNJliK-mthdStu_Hg/formResponse',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams({
+            'entry.2005620554': data.name,     // Name
+            'entry.1045781291': data.email,    // Email
+            'entry.839337160': data.message,   // Message
+          }),
+        }
+      );
+  
       if (response.ok) {
-        toast({
-          title: 'Success',
-          description: 'Message sent successfully!',
-        });
-        reset();
+        alert('Form submitted successfully!');
       } else {
-        toast({
-          title: 'Error',
-          description: 'Failed to send message. Please try again.',
-        });
+        alert('Submission may have failed. Please check.');
       }
     } catch (error) {
-      toast({
-        title: 'Error',
-        description: 'An error occurred. Please try again later.',
-      });
+      console.error('Submission error:', error);
+      alert('An error occurred while submitting the form.');
     }
   };
+  
 
   const projects = [
     {
@@ -135,8 +134,8 @@ const Index = () => {
         "Official website for Malnad Eco Club, featuring events, gallery, and environmental initiatives.",
       tech: ["React.js", "TailwindCSS", "Node.js"],
       image: "/photos/malnadecoclub.png",
-      github: "https://github.com/malnadecoclub/malnad-eco-club",
-      demo: "https://malnad-eco-club.vercel.app/",
+      github: "https://github.com/seena2003/malnadecoclub.git",
+      demo: "https://malnadecoclub.vercel.app/",
     },
     {
       title: "ToDO Application",
@@ -153,8 +152,8 @@ const Index = () => {
         "Personal portfolio website showcasing my projects, skills, and experience.",
       tech: ["React.js", "Vite", "TailwindCSS"],
       image: "/photos/portfolio.png",
-      github: "https://github.com/seena2003/portfolio",
-      demo: "https://portfolio-psi-henna-70.vercel.app/",
+      github: "https://github.com/seena2003/portfolio.git",
+      demo: "https://portfolio-two-ruby-18.vercel.app/",
     },
     {
       title: "AI Fashion Design Generator",
