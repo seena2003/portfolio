@@ -28,12 +28,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { useToast } from "@/hooks/use-toast";
 import { motion, AnimatePresence } from "framer-motion";
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { useForm } from 'react-hook-form';
-import { toast } from 'sonner';
 import { lazy } from 'react';
 
 const ProjectCarousel = lazy(() => import('@/components/ProjectCarousel'));
@@ -50,65 +45,6 @@ interface Project {
 const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-  const { register, handleSubmit, reset } = useForm();
-
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-  const scrollToSection = (sectionId: string) => {
-    setActiveSection(sectionId);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsMenuOpen(false);
-  };
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const onSubmit = async (data) => {
-    try {
-      const response = await fetch(
-        'https://docs.google.com/forms/d/e/1FAIpQLSdRavmXwRNdYZAzHUJJqbppKhGfzCAu6pNJliK-mthdStu_Hg/formResponse',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: new URLSearchParams({
-            'entry.2005620554': data.name,     // Name
-            'entry.1045781291': data.email,    // Email
-            'entry.839337160': data.message,   // Message
-          }),
-        }
-      );
-  
-      if (response.ok) {
-        alert('Form submitted successfully!');
-      } else {
-        alert('Submission may have failed. Please check.');
-      }
-    } catch (error) {
-      console.error('Submission error:', error);
-      alert('An error occurred while submitting the form.');
-    }
-  };
-  
-
   const projects = [
     {
       title: "AgriBot",
@@ -206,6 +142,17 @@ const Index = () => {
     { name: "DevOps Fundamentals", org: "Seminarroom Education", year: "2024" },
     { name: "Deloitte NLA Clearance", org: "Deloitte", year: "2025" },
   ];
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const scrollToSection = (sectionId: string) => {
+    setActiveSection(sectionId);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMenuOpen(false);
+  };
 
   return (
     <div className="min-h-screen bg-slate-900 text-white">
@@ -345,7 +292,7 @@ const Index = () => {
                 >
                   Explore My Work
                 </Button>
-                <a href="/resume.pdf" download>
+                <a href="/Srinath_Gowda_S_M.pdf" download>
                   <Button
                     variant="outline"
                     className="border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-white px-6 py-3"
@@ -815,14 +762,12 @@ const Index = () => {
                 <CardTitle className="text-white">Send a Message</CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                <form action="https://docs.google.com/forms/d/e/1FAIpQLSdRavmXwRNdYZAzHUJJqbppKhGfzCAu6pNJliK-mthdStu_Hg/formResponse" method="POST" target="_blank" className="space-y-4">
                   <div>
                     <input
                       type="text"
-                      name="name"
+                      name="entry.2005620554"
                       placeholder="Your Name"
-                      value={formData.name}
-                      onChange={handleInputChange}
                       required
                       className="w-full p-3 bg-slate-900 border border-slate-700 rounded-lg text-white placeholder-gray-400 focus:border-orange-400 focus:outline-none"
                     />
@@ -830,31 +775,26 @@ const Index = () => {
                   <div>
                     <input
                       type="email"
-                      name="email"
+                      name="entry.1045781291"
                       placeholder="Your Email"
-                      value={formData.email}
-                      onChange={handleInputChange}
                       required
                       className="w-full p-3 bg-slate-900 border border-slate-700 rounded-lg text-white placeholder-gray-400 focus:border-orange-400 focus:outline-none"
                     />
                   </div>
                   <div>
                     <textarea
-                      name="message"
+                      name="entry.839337160"
                       placeholder="Your Message"
                       rows={4}
-                      value={formData.message}
-                      onChange={handleInputChange}
                       required
                       className="w-full p-3 bg-slate-900 border border-slate-700 rounded-lg text-white placeholder-gray-400 focus:border-orange-400 focus:outline-none"
                     ></textarea>
                   </div>
                   <Button
                     type="submit"
-                    disabled={isSubmitting}
                     className="w-full bg-orange-500 hover:bg-orange-600 text-white"
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    Send Message
                   </Button>
                 </form>
               </CardContent>
